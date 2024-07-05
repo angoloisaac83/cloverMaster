@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Invite from './components/InviteFriend'
+import Earn from './components/Earn'
 import { Link } from 'react-router-dom';
 interface AppLayoutProps {
   children: ReactNode;
@@ -41,7 +42,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     1000000000// Lord
   ];
 
-  const [levelIndex, setLevelIndex] = useState(6);
+  const [levelIndex, setLevelIndex] = useState(9);
   const [points, setPoints] = useState(22749365);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const pointsToAdd = 11;
@@ -145,7 +146,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Nikandr (CEO)</p>
+              <p className="text-sm">Micheal</p>
             </div>
           </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
@@ -162,7 +163,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center w-2/3 border-2 border-[#43433b] rounded-full px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64">
+            {/* <div className="flex items-center w-2/3 border-2 border-[#43433b] rounded-full px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64">
               <img src={binanceLogo} alt="Exchange" className="w-8 h-8" />
               <div className="h-[32px] w-[2px] bg-[#43433b] mx-2"></div>
               <div className="flex-1 text-center">
@@ -175,35 +176,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
               </div>
               <div className="h-[32px] w-[2px] bg-[#43433b] mx-2"></div>
               <Settings className="text-white" />
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="flex-grow mt-4 bg-[#f3ba2f] rounded-t-[48px] relative top-glow z-0">
+        <div className="flex-grow mt-4 pt-[30px] bg-[#12e40b] rounded-t-[48px] relative top-glow z-0">
           <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-[#1d2025] rounded-t-[46px]">
-            <div className="px-4 mt-6 flex justify-between gap-2">
-              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
-                <div className="dot"></div>
-                <img src={dailyReward} alt="Daily Reward" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">Daily reward</p>
-                <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyRewardTimeLeft}</p>
-              </div>
-              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
-                <div className="dot"></div>
-                <img src={dailyCipher} alt="Daily Cipher" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">Daily cipher</p>
-                <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyCipherTimeLeft}</p>
-              </div>
-              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
-                <div className="dot"></div>
-                <img src={dailyCombo} alt="Daily Combo" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">Daily combo</p>
-                <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyComboTimeLeft}</p>
-              </div>
-            </div>
             <Routes>
           <Route path="/" element={<Land />} />
           <Route path="/invite" element={<Invite />} />
+          <Route path="/earn" element={<Earn />} />
           {/* You can add more routes here */}
         </Routes>
           </div>
@@ -212,13 +194,10 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
       {/* Bottom fixed div */}
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-[#272a2f] flex justify-around items-center z-50 rounded-3xl text-xs">
+       
         <div className="text-center text-[#85827d] w-1/5 bg-[#1c1f24] m-1 p-2 rounded-2xl">
           <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto" />
-          <p className="mt-1">Exchange</p>
-        </div>
-        <div className="text-center text-[#85827d] w-1/5">
-          <Mine className="w-8 h-8 mx-auto" />
-          <p className="mt-1">Mine</p>
+         <Link to='/'> <p className="mt-1">Exchange</p></Link>
         </div>
         <Link to="/invite">
         <div className="text-center text-[#85827d] w-1/5">
@@ -226,10 +205,12 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           <p className="mt-1">Friends</p>
         </div>
         </Link>
+        <Link to="/earn">
         <div className="text-center text-[#85827d] w-1/5">
           <Coins className="w-8 h-8 mx-auto" />
           <p className="mt-1">Earn</p>
         </div>
+        </Link>
         <div className="text-center text-[#85827d] w-1/5">
           <img src={hamsterCoin} alt="Airdrop" className="w-8 h-8 mx-auto" />
           <p className="mt-1">Airdrop</p>

@@ -34,7 +34,8 @@ export default function Land(){
       ];
     
       const [levelIndex, setLevelIndex] = useState(6);
-      const [points, setPoints] = useState(22749365);
+      const [points, setPoints] = useState(0);
+      const [energy, setEnergy] = useState(1000);
       const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
       const pointsToAdd = 11;
       const profitPerHour = 126420;
@@ -129,7 +130,7 @@ export default function Land(){
       }, [profitPerHour]);
     
     return(
-        <>
+        <main className="pt-[30px]">
             <div className="px-4 mt-4 flex justify-center">
                 <div className="px-4 py-2 flex items-center space-x-2">
                 <img src={dollarCoin} alt="Dollar Coin" className="w-10 h-10" />
@@ -146,6 +147,19 @@ export default function Land(){
                 </div>
                 </div>
             </div>
-        </>
+            <div className='w-full h-fit px-[10%] flex justify-between items-center text-xl font-[600] pt-[25px]'>
+                <span className='flex items-center justify-center h-fit w-fit '>
+                <span className="material-symbols-outlined text-[gold]">
+                    bolt
+                </span>
+                    {`${energy}/${energy}`}
+                </span>
+                <span>
+                <span className="material-symbols-outlined">
+                rocket_launch
+                </span> Boost
+                </span>
+            </div> 
+        </main>
     )
 }

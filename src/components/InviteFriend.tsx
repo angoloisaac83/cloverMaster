@@ -3,7 +3,7 @@ import React, { useState, FormEvent } from 'react';
 const Invite: React.FC = () => {
 
   return (
-    <div className='w-full overflow-y-scroll flex gap-[10px] flex-col items-center justify-center p-[20px] h-[50vh]'>
+    <div className='w-full overflow-y-scroll flex gap-[10px] flex-col items-center justify-center p-[20px] h-[70vh]'>
       <h2 className='text-3xl'>Invite Freinds!</h2>
       <p>You and your freinds will recieve bonuses</p>
       <section className='w-full flex flex-col gap-[20px] items-center justify-center pt-[20px]'>
@@ -24,13 +24,12 @@ const Invite: React.FC = () => {
         <div className='w-[90%] rounded-md py-[10px] text-slate-100 bg-black pb-[10px] pl-[40px]'>
             <ul className='list-decimal w-full flex flex-col items-start justify-start gap-[10px]'>
                 <li>
-                    Angolo isaac
-                </li>
-                <li>
-                    Angolo isaac
-                </li>
-                <li>
-                    Angolo isaac
+                    <img src="" alt="" />
+                    <span>
+                        Username: Angolo isaac
+                        <br></br>
+                        Level: 37
+                    </span>
                 </li>
             </ul>
         </div>
